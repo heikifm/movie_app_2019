@@ -1,27 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PropTypes from "prop-types";
 
-function App() {
+function Food({name, image, rating}) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to React</h1>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>I like {name}</h1>
+      <h2>{rating}/5.0</h2>
+      <img src={image} alt={name}/>
     </div>
   );
 }
 
+Food.propTypes = {
+   name: PropTypes.string.isRequired,
+   image: PropTypes.string.isRequired,
+   rating: PropTypes.number.isRequired
+}
+
+const foodILike = [
+  {
+    id:1,
+    name: "Kitty",
+    image: "https://www.felineliving.net/wp-content/uploads/2017/12/siamese-kitty-names-e1522099876180-150x146.jpeg",
+    rating: 4.9
+  },
+  {
+    id:2,
+    name: "Puppy",
+    image: "http://images5.fanpop.com/image/photos/31900000/cute-puppy-cute-puppies-31906327-120-116.jpg",
+    rating: 5.0
+  }
+];
+
+function renderFood(dish) {
+  console.log(dish);
+  return <Food key={dish.id} name={dish.name} image={dish.image} rating={dish.rating}/>;
+}
+
+function App() {
+  return (
+    <div>
+      <h1>Hello!!!</h1>
+      {foodILike.map(renderFood)}
+    </div>
+    
+      
+  );
+}
+
 export default App;
+
+
