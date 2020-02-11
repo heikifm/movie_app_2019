@@ -14,62 +14,24 @@
         <script type="text/babel">
             let dom = document.querySelector('#root');
 
-            const list = {
-                fontSize: "18pt",
-                padding: "5px 50px"
-            };
+            class Hello extends React.Component {
+                constructor(props) {
+                    super(props);
+                }
 
-            const table = {
-                fontSize: "16pt",
-                padding: "5px 50px",
+                render() {
+                    return <p>Hello!!</p>;
+                }
             }
-
-            const th = {
-                color: 'white',
-                backgroundColor: '#006',
-                padding: '5px 15px'
-            }
-
-            const td = {
-                color:"black",
-                padding:"5px 15px",
-                border:"1px solid gray"
-            }
-
-            let data = [
-                {name:'Taro', mail:'taro@yamada', age:45},
-                {name:"Hanako", mail:"hanako@flower", age:33},
-                {name:"Momoka", mail:"momoka@sakura", age:25},
-            ]
-
-
 
             let el = (
                 <div>
-                    {(() => 
-                    <table style={table}>
-                        <thead>
-                            <tr>
-                                <th style={th}>name</th>
-                                <th style={th}>mail</th>
-                                <th style={th}>age</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {data.map((value) => (
-                            <tr>
-                                <td style={td}>{value.name}</td>
-                                <td style={td}>{value.mail}</td>
-                                <td style={td}>{value.age}</td>
-                            </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                    )()}
+                    <Hello />
                 </div>
             );
 
-        ReactDOM.render(el, dom);
+            ReactDOM.render(el, dom);
+
         </script>
     </body>
 </html>
