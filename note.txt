@@ -1,1 +1,10 @@
 #memo
+
+
+# install prettier
+npm install prettier -D
+
+
+# install ESLINT
+npm install --save-dev eslint
+
